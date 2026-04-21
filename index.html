@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathQuiz — 100 Niveaux</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="stylee.css" />
+</head>
+<body>
+
+  <!-- ===== ÉCRAN MENU ===== -->
+  <div id="screen-menu" class="screen active">
+    <div class="bg-grid"></div>
+    <div class="menu-inner">
+      <div class="logo-block">
+        <div class="logo-badge">v1.0</div>
+        <h1 class="logo-title">MATH<span>QUIZ</span></h1>
+        <p class="logo-sub">100 niveaux · Calcul mental</p>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num" id="stat-best-level">1</span>
+          <span class="stat-label">Meilleur niveau</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-games">0</span>
+          <span class="stat-label">Parties</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="stat-best-score">0</span>
+          <span class="stat-label">Meilleur score</span>
+        </div>
+      </div>
+
+      <div class="section-label">Mode de jeu</div>
+      <div class="mode-row" id="mode-row">
+        <button class="mode-btn active" data-mode="classique">
+          <span class="mode-icon">✏️</span>
+          <span>Classique</span>
+        </button>
+        <button class="mode-btn" data-mode="chrono">
+          <span class="mode-icon">⏱</span>
+          <span>Chrono</span>
+        </button>
+        <button class="mode-btn" data-mode="qcm">
+          <span class="mode-icon">🎯</span>
+          <span>QCM</span>
+        </button>
+      </div>
+
+      <button class="btn-primary" id="start-btn">Commencer →</button>
+
+      <div class="level-selector">
+        <span class="section-label" style="margin-bottom:0">Niveau de départ :</span>
+        <div class="level-row">
+          <button class="lvl-arrow" id="lvl-down">‹</button>
+          <span class="lvl-display" id="lvl-display">1</span>
+          <button class="lvl-arrow" id="lvl-up">›</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ÉCRAN JEU ===== -->
+  <div id="screen-game" class="screen">
+    <header class="game-header">
+      <button class="back-btn" id="back-btn">← Menu</button>
+      <div class="header-center">
+        <span class="level-tag" id="level-tag">Niveau 1</span>
+      </div>
+      <div class="score-tag" id="score-tag">0 pts</div>
+    </header>
+
+    <div class="game-body">
+      <div class="meta-row">
+        <span class="meta-cat" id="meta-cat">Addition</span>
+        <span class="meta-qnum" id="meta-qnum">1 / 5</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+
+      <div class="timer-track">
+        <div class="timer-fill" id="timer-fill" style="width:100%"></div>
+      </div>
+
+      <div class="lives-row" id="lives-row"></div>
+
+      <div class="question-card" id="question-card">
+        <div class="q-hint" id="q-hint"></div>
+        <div class="q-text" id="q-text">2 + 4 = ?</div>
+      </div>
+
+      <div id="answer-zone"></div>
+
+      <div class="feedback-msg" id="feedback-msg"></div>
+
+      <button class="btn-next" id="next-btn" style="display:none">Question suivante →</button>
+    </div>
+  </div>
+
+  <!-- ===== ÉCRAN RÉSULTAT ===== -->
+  <div id="screen-result" class="screen">
+    <div class="result-inner">
+      <div class="result-emoji" id="result-emoji">🎉</div>
+      <h2 class="result-title" id="result-title">Niveau réussi !</h2>
+      <p class="result-sub" id="result-sub">Tu passes au niveau suivant.</p>
+
+      <div class="stats-row" style="margin:2rem 0">
+        <div class="stat-card">
+          <span class="stat-num" id="r-score">0</span>
+          <span class="stat-label">Score</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="r-correct">0/5</span>
+          <span class="stat-label">Bonnes rép.</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="r-accuracy">0%</span>
+          <span class="stat-label">Précision</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="continue-btn">Continuer →</button>
+      <button class="btn-secondary" id="menu-btn">Menu principal</button>
+    </div>
+  </div>
+
+  <script src="scripte.js"></script>
+</body>
+</html>
